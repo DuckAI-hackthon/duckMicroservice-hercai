@@ -8,7 +8,7 @@ app.get("/", async (req, res) => {
   const query: any = req.query.q;
   herc.question({ model: "v2", content: query }).then((response: any) => {
     console.log(response.reply);
-    res.json({ response });
+    res.json({ response: response.reply });
   });
 });
 
@@ -22,7 +22,7 @@ app.get("/translate", async (req, res) => {
     })
     .then((response: any) => {
       console.log(response.reply);
-      res.json({ response });
+      res.json({ response: response.reply });
     });
 });
 
@@ -35,7 +35,7 @@ app.get("/keys", async (req, res) => {
     })
     .then((response: any) => {
       console.log(response.reply);
-      res.json({ response });
+      res.json({ response: response.reply });
     });
 });
 
@@ -47,7 +47,7 @@ app.get("/sumup", async (req, res) => {
     })
     .then((response: any) => {
       console.log(response.reply);
-      res.json({ response });
+      res.json({ response: response.reply });
     });
 });
 
