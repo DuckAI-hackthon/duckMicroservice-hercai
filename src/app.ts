@@ -1,15 +1,15 @@
-const express = require("express");
-const cors = require("cors");
+import express from "express";
+import cors from "cors";
 const app = express();
 const port = 3000;
 
-const hercaiRoutes = require("./app/hercai/hercai");
+import hercaiRoutes from "./service/hercai"; 
 
 app.use(express.json());
 app.use("/hercai", hercaiRoutes);
 
-app.get("/", (req, res) => {
-  res.send("Hello World!");
+app.get("/", (req: any, res: any) => {
+  res.send("Hercai!");
 });
 
 app.listen(port, () => {

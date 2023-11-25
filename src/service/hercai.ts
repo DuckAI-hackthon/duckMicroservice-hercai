@@ -1,59 +1,54 @@
-const express = require("express");
+import express from "express";
+import { Hercai } from "hercai";
 
 const app = express.Router();
-
-const { Hercai } = require("hercai");
-
 const herc = new Hercai();
 
 app.get("/", async (req, res) => {
-  const query = req.query.q;
-  herc.question({ model: "v2", content: query }).then((response) => {
+  const query: any = req.query.q;
+  herc.question({ model: "v2", content: query }).then((response: any) => {
     console.log(response.reply);
     res.json({ response });
   });
 });
 
-app.get("/traduzir", async (req, res) => {
+app.get("/translate", async (req, res) => {
   const query = req.query.q;
   const from_lang = req.query.from;
   const to_lang = req.query.to;
-  herc
-    .question({
+  herc.question({
       model: "v2",
       content: `Me retorne apenas o resultado que estou pedindo. Preciso que voce traduza esse texto: ${query} para ${to_lang}. Me retorne apenas o texto traduzido.`,
     })
-    .then((response) => {
+    .then((response: any) => {
       console.log(response.reply);
       res.json({ response });
     });
 });
 
-app.get("/key-words", async (req, res) => {
+app.get("/keys", async (req, res) => {
   const query = req.query.q;
   const keys = req.query.key;
-  herc
-    .question({
+  herc.question({
       model: "v2",
       content: `Me retorne ${keys} palavras chaves desse texto: ${query}`,
     })
-    .then((response) => {
+    .then((response: any) => {
       console.log(response.reply);
       res.json({ response });
     });
 });
 
-app.get("/resumo", async (req, res) => {
+app.get("/sumup", async (req, res) => {
   const query = req.query.q;
-  herc
-    .question({
+  herc.question({
       model: "v2",
       content: `Resume esse texto: ${query}`,
     })
-    .then((response) => {
+    .then((response: any) => {
       console.log(response.reply);
       res.json({ response });
     });
 });
 
-module.exports = app;
+export = app;

@@ -4,16 +4,23 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node src/app",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules src/app.ts",
+    "build": "tsc"
   },
   "keywords": [],
-  "author": "",
+  "author": "lsprgabriel <ogabrielpereira@pm.me>",
   "license": "ISC",
   "dependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
     "cors": "^2.8.5",
     "express": "^4.18.2",
     "hercai": "^11.0.0",
     "nodemon": "^3.0.1"
-  }
+  },
+  "devDependencies": {
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.3.2"
+  },
+  "repository": "git@github.com:DuckAI-hackthon/duckMicroservice-hercai.git"
 }
